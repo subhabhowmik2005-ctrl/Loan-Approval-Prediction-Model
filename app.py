@@ -66,7 +66,7 @@ model = None
 model_accuracy = 0.0
 
 try:
-    model_path = os.path.join(os.path.dirname(__file__), 'loan_model.pkl')
+    model_path = os.path.join(os.path.dirname(__file__), 'Loan_model.pkl')
     with open(model_path, 'rb') as f:
         data = pickle.load(f)
 
