@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="coin coin-1"></div>
+        <div class="coin coin-2"></div>
+        <div class="coin coin-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>💰 Loan Approval <span class="highlight">Prediction Model</span></h1>
+            <p>Financial Intelligence at Your Fingertips</p>
+        </header>
+
+        <main>
+            <div class="glass-card">
+                <div class="visual-side">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" alt="Finance" class="hero-img">
+                    <div class="finance-quote">
+                        <h3>Secure Your Future</h3>
+                        <p>AI-driven credit analysis</p>
+                    </div>
+                </div>
+
+                <form id="loan-form">
+                    <div class="form-grid">
+                        <div class="input-group full-width">
+                            <label>Education Level</label>
+                            <select name="education">
+                                <option value="1">Graduate</option>
+                                <option value="0">Not Graduate</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group full-width">
+                            <label>Self Employed?</label>
+                            <select name="self_employed">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Annual Income</label>
+                            <input type="number" name="income_annum" placeholder="e.g. 500000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Loan Amount</label>
+                            <input type="number" name="loan_amount" placeholder="e.g. 200000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Loan Term (Years)</label>
+                            <input type="number" name="loan_term" placeholder="e.g. 15" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>CIBIL Score (300-900)</label>
+                            <input type="number" name="cibil_score" placeholder="e.g. 750" min="300" max="900" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Residential Assets Value</label>
+                            <input type="number" name="residential_assets_value" placeholder="e.g. 1000000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Commercial Assets Value</label>
+                            <input type="number" name="commercial_assets_value" placeholder="e.g. 500000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Luxury Assets Value</label>
+                            <input type="number" name="luxury_assets_value" placeholder="e.g. 200000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Bank Asset Value</label>
+                            <input type="number" name="bank_asset_value" placeholder="e.g. 100000" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="predict-btn">Check Eligibility</button>
+                </form>
+            </div>
+
+            <div id="result-box" class="result-box hidden">
+                <div class="accuracy-tag">Accuracy: <span id="accuracy-val">97%</span></div>
+                <h2>Approval Status</h2>
+                <div class="status-wrapper">
+                    <span id="status-icon" class="status-icon"></span>
+                    <span id="status-text">Pending...</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>@ 2026 Loan Approval AI System</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
