@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Approval Prediction Model</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="background-animation">
         <div class="coin coin-1"></div>
@@ -23,7 +27,8 @@
         <main>
             <div class="glass-card">
                 <div class="visual-side">
-                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" alt="Finance" class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80"
+                        alt="Finance" class="hero-img">
                     <div class="finance-quote">
                         <h3>Secure Your Future</h3>
                         <p>AI-driven credit analysis</p>
@@ -39,7 +44,7 @@
                                 <option value="0">Not Graduate</option>
                             </select>
                         </div>
-                        
+
                         <div class="input-group full-width">
                             <label>Self Employed?</label>
                             <select name="self_employed">
@@ -50,17 +55,21 @@
 
                         <div class="input-group">
                             <label>Annual Income</label>
-                            <input type="number" name="income_annum" placeholder="e.g. 500000" required>
+                            <input type="number" name="income_annum" placeholder="e.g. 500000" min="120000" required>
                         </div>
 
                         <div class="input-group">
                             <label>Loan Amount</label>
                             <input type="number" name="loan_amount" placeholder="e.g. 200000" required>
                         </div>
+                        <div class="input-group">
+                            <label>Current Age</label>
+                            <input type="number" id="age" placeholder="e.g. 18" min="18" max="60" required>
+                        </div>
 
                         <div class="input-group">
                             <label>Loan Term (Years)</label>
-                            <input type="number" name="loan_term" placeholder="e.g. 15" required>
+                            <input type="number" name="loan_term" id="loan_age" placeholder="e.g. 15" required>
                         </div>
 
                         <div class="input-group">
@@ -68,24 +77,30 @@
                             <input type="number" name="cibil_score" placeholder="e.g. 750" min="300" max="900" required>
                         </div>
 
+
+
+
                         <div class="input-group">
                             <label>Residential Assets Value</label>
-                            <input type="number" name="residential_assets_value" placeholder="e.g. 1000000" required>
+                            <input type="number" name="residential_assets_value" placeholder="e.g. 1000000" min="10000"
+                                required>
                         </div>
 
                         <div class="input-group">
                             <label>Commercial Assets Value</label>
-                            <input type="number" name="commercial_assets_value" placeholder="e.g. 500000" required>
+                            <input type="number" min="10000" name="commercial_assets_value" placeholder="e.g. 500000"
+                                required>
                         </div>
 
                         <div class="input-group">
                             <label>Luxury Assets Value</label>
-                            <input type="number" name="luxury_assets_value" placeholder="e.g. 200000" required>
+                            <input type="number" min="1000" name="luxury_assets_value" placeholder="e.g. 200000"
+                                required>
                         </div>
 
                         <div class="input-group">
                             <label>Bank Asset Value</label>
-                            <input type="number" name="bank_asset_value" placeholder="e.g. 100000" required>
+                            <input type="number" name="bank_asset_value" placeholder="e.g. 100000" min="10000" required>
                         </div>
                     </div>
 
@@ -94,7 +109,6 @@
             </div>
 
             <div id="result-box" class="result-box hidden">
-                <div class="accuracy-tag">Accuracy: <span id="accuracy-val">97%</span></div>
                 <h2>Approval Status</h2>
                 <div class="status-wrapper">
                     <span id="status-icon" class="status-icon"></span>
@@ -110,4 +124,5 @@
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
